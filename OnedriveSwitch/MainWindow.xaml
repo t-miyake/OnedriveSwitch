@@ -1,0 +1,20 @@
+﻿<Window x:Class="OnedriveSwitch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnedriveSwitch"
+        mc:Ignorable="d"
+        Title="OneDrive Switch" Height="150" Width="222" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+    <StackPanel>
+        <Label x:Name="Info" Content="OneDriveの有効/無効を切り替えます。"/>
+        <Label x:Name="Now" Content="{Binding CurrentStateText,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Margin="20">
+            <Button x:Name="Enable" Content="有効化" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="75" Command="{Binding Enable}" IsEnabled="{Binding EnableButton }"/>
+            <Button x:Name="DIsable" Content="無効化" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Command="{Binding Disable}" IsEnabled="{Binding DisableButton }"/>
+        </Grid>
+    </StackPanel>
+</Window>
